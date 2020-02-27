@@ -1,0 +1,6 @@
+<button (click)="getContacts()">Get Contacts</button>
+<div>
+    Contact List: 
+    <br>
+    <div *ngFor="let contact of contactList">{{contact.first_name}}</div>
+</div>

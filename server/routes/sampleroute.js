@@ -1,11 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200
+};
 
 // Include ContactSchema
 const Contact = require('../models/contacts');
 
 // Get sample
-router.get('/contacts', (req, res, next) => {
+router.get('/contacts', cors(corsOptions), (req, res, next) => {
     Contact.find(function(err, contacts){
         res.json(contacts)
     });
